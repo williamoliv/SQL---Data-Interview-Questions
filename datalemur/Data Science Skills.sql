@@ -20,4 +20,4 @@ FROM (
 GROUP BY 
   candidate_id
 HAVING 
-  COUNT(candidate_id) >= 3
+  COUNT(candidate_id) >= 3;

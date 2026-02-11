@@ -17,6 +17,8 @@ WITH user_tweet_counts AS (
 SELECT 
   tweet_count AS tweet_bucket, 
   COUNT(user_id) AS users_num 
-FROM user_tweet_counts
-GROUP BY tweet_count
-ORDER BY tweet_bucket ASC;
+FROM  user_tweet_counts
+GROUP BY 
+  tweet_count
+ORDER BY 
+  tweet_bucket ASC;

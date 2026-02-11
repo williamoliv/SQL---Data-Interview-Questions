@@ -18,4 +18,4 @@ ON t1.page_id = t2.page_id
 WHERE 
   count_page_like IS NULL
 ORDER BY 
-  t1.page_id ASC ;
+  t1.page_id ASC;

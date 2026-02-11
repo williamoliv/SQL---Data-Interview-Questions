@@ -22,5 +22,4 @@ FROM
   posts AS A
 INNER JOIN work_table AS B 
 ON A.user_id = B.user_id
-GROUP BY B.user_id
-;
+GROUP BY B.user_id;
