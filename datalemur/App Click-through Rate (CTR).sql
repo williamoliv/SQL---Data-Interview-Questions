@@ -26,11 +26,9 @@ GROUP BY app_id)
 
 SELECT 
   A.app_id, 
-  ROUND(((ROUND((click_count/impression_count),4))* 100),2) AS ctr
+  ROUND((((click_count/impression_count))* 100),2) AS ctr
 FROM 
   tb_impression AS A
 JOIN 
   tb_click AS B
 ON A.app_id = B.app_id;
-
-  
