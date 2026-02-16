@@ -20,7 +20,7 @@ WITH maxtb AS (SELECT
                   card_name)
 SELECT 
     t1.card_name,
-    (max_issued_amount -	min_issued_amount) as difference  
+    (max_issued_amount - min_issued_amount) as difference  
 FROM 
   maxtb AS t1 JOIN mintb AS t2
 ON 
