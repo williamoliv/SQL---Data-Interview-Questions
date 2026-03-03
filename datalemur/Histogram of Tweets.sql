@@ -10,14 +10,13 @@ WITH user_tweet_counts AS (
     user_id, 
     COUNT(tweet_id) AS tweet_count 
   FROM tweets 
-  WHERE tweet_date >= '2022-01-01' 
-    AND tweet_date < '2023-01-01'
+  WHERE tweet_date >= '2022-01-01' AND tweet_date < '2023-01-01'
   GROUP BY user_id
 )
 SELECT 
   tweet_count AS tweet_bucket, 
   COUNT(user_id) AS users_num 
-FROM  user_tweet_counts
+FROM user_tweet_counts
 GROUP BY 
   tweet_count
 ORDER BY 

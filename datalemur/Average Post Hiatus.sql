@@ -7,8 +7,7 @@ WITH work_table AS
   (SELECT 
     user_id, 
     count(post_id) AS count_post
-  FROM 
-    posts
+  FROM posts
   WHERE 
     post_date BETWEEN '01/01/2021' AND '12/31/2021'
   GROUP BY   
@@ -18,8 +17,7 @@ WITH work_table AS
 SELECT 
   B.user_id, 
   (MAX(post_date)::date - MIN(post_date)::date) AS days_between
-FROM 
-  posts AS A
+FROM posts AS A
 INNER JOIN work_table AS B 
 ON A.user_id = B.user_id
 GROUP BY B.user_id;

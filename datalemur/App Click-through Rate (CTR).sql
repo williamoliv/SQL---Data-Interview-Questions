@@ -7,8 +7,7 @@ WITH tb_impression AS
 (SELECT 
   app_id, 
   ROUND(COUNT(event_type),4) AS impression_count 
-FROM 
-  events
+FROM events
 WHERE 
   event_type = 'impression'  
   AND EXTRACT(YEAR FROM timestamp) = 2022

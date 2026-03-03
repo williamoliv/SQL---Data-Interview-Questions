@@ -12,8 +12,7 @@ FROM
         title, 
         description, 
         COUNT(*) AS count_co
-      FROM 
-        job_listings
+      FROM job_listings
       GROUP BY 
         company_id,
         title,

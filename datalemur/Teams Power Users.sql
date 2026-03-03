@@ -7,8 +7,7 @@
 SELECT 
   sender_id,
   COUNT(message_id) AS message_count
-FROM 
-  messages 
+FROM messages 
 WHERE 
   sent_date >= '08-01-2022' AND sent_date <= '08-31-2022'
 GROUP BY 

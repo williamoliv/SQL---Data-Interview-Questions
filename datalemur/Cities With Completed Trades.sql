@@ -5,8 +5,7 @@ WITH tb_compl AS
 (SELECT 
   A.order_id, 
   B.city 
-FROM 
-  trades AS A
+FROM trades AS A
 INNER JOIN users AS B
 ON A.user_id = B.user_id
 WHERE
@@ -15,8 +14,7 @@ WHERE
 SELECT 
   city, 
   COUNT(order_id) AS total_orders 
-FROM 
-  tb_compl 
+FROM tb_compl 
 GROUP BY 
   city 
 ORDER BY total_orders DESC 

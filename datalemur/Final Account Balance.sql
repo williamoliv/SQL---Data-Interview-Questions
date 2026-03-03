@@ -6,8 +6,7 @@ WITH
     (SELECT 
       account_id, 
       SUM(amount) AS sum_Deposit
-     FROM
-        transactions
+     FROMM transactions
      WHERE 
       transaction_type = 'Deposit' 
      GROUP BY account_id),
@@ -15,16 +14,13 @@ WITH
     (SELECT 
       account_id, 
       SUM(amount) AS sum_Withdrawal 
-    FROM
-      transactions
+    FROM transactions
      WHERE 
         transaction_type = 'Withdrawal' 
      GROUP BY account_id)
 SELECT 
   A.account_id, 
   (A.sum_Deposit - B.sum_Withdrawal) AS final_balance 
-FROM 
-  tbdeposit A 
-JOIN 
-  tbwithdrawal B 
+FROM tbdeposit A 
+JOIN tbwithdrawal B 
 ON A.account_id = B.account_id;

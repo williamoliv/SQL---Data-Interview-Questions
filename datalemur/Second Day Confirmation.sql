@@ -8,10 +8,8 @@
 
 SELECT 
   user_id 
-FROM 
-  emails AS t1 
-INNER JOIN 
-  texts AS t2 
+FROM emails AS t1 
+INNER JOIN texts AS t2 
 ON  
   t1.email_id = t2.email_id 
 WHERE 

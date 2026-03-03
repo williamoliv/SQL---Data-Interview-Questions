@@ -9,10 +9,9 @@ WITH queries_per_employee AS
   SELECT DISTINCT 
     employee_id, 
     COUNT(*) AS no_queries
-  FROM 
-    queries
+  FROM queries
   WHERE 
-    DATE_TRUNC('month',query_starttime) BETWEEN '2023-07-01' AND '2023-09-01'
+    DATE_TRUNC('month', query_starttime) BETWEEN '2023-07-01' AND '2023-09-01'
   GROUP BY 
     employee_id
   ),
@@ -25,22 +24,19 @@ zero_queries AS (
   WHERE 
     employee_id NOT IN (SELECT DISTINCT 
                           employee_id 
-                        FROM 
-                          queries_per_employee)
+                        FROM queries_per_employee)
   )
 
 SELECT 
   no_queries, 
   COUNT(employee_id) AS no_employees
-FROM 
-  zero_queries
+FROM zero_queries
 GROUP BY 
   1
 UNION
 SELECT DISTINCT 
   no_queries, 
   COUNT(DISTINCT employee_id)
-FROM 
-  queries_per_employee
+FROM queries_per_employee
 GROUP BY 1
 ORDER BY 1;

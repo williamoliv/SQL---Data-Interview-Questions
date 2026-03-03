@@ -6,23 +6,20 @@
 WITH maxtb AS (SELECT 
                   card_name,
                   MAX(issued_amount) AS max_issued_amount
-                FROM 
-                  monthly_cards_issued 
+                FROM monthly_cards_issued 
                 GROUP BY 
                   card_name),
       mintb AS (
                 SELECT 
                   card_name,
                   MIN(issued_amount) AS min_issued_amount
-                FROM  
-                  monthly_cards_issued 
+                FROM monthly_cards_issued 
                 GROUP BY 
                   card_name)
 SELECT 
     t1.card_name,
     (max_issued_amount - min_issued_amount) as difference  
-FROM 
-  maxtb AS t1 JOIN mintb AS t2
+FROM maxtb AS t1 JOIN mintb AS t2
 ON 
   t1.card_name = t2.card_name
 ORDER BY 

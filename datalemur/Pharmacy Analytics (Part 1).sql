@@ -10,8 +10,7 @@ WITH
       drug, 
       (total_sales - cogs) AS total_profit,
       ROW_NUMBER() OVER(ORDER BY (total_sales - cogs) DESC) AS rank
-    FROM 
-      pharmacy_sales
+    FROM pharmacy_sales
   )
 SELECT
   drug,

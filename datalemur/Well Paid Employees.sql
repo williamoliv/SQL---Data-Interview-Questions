@@ -8,16 +8,14 @@ WITH manager_salaries AS
 SELECT 
   employee_id AS manager_id_r,
   salary AS manager_salary 
-FROM 
-  employee
+FROM employee
 WHERE
   manager_id is NULL)
   
 SELECT 
   A.employee_id,	
   A.name
-FROM 
-  employee AS A
+FROM employee AS A
 JOIN 
   manager_salaries AS B 
 ON A.manager_id = B.manager_id_r

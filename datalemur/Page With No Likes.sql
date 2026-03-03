@@ -5,8 +5,7 @@
 
 SELECT 
   t1.page_id 
-FROM 
-  pages AS t1
+FROM pages AS t1
 LEFT JOIN (SELECT 
             page_id, 
             COUNT(liked_date) AS count_page_like

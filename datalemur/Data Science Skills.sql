@@ -10,8 +10,7 @@ FROM (
     SELECT 
       candidate_id, 	
       skill
-    FROM 
-      candidates 
+    FROM candidates 
     WHERE 
       skill = 'Python' OR
       skill = 'Tableau' OR
